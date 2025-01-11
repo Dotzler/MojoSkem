@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mojoskem Admin - Bookings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <div class="w-64 bg-slate-800 text-white">
+            <div class="p-4 font-bold text-lg border-b border-slate-700">MOJOSKEM ADMIN</div>
+            <nav class="mt-4">
+                <a href="index.html" class="block px-4 py-3 hover:bg-slate-700 transition-colors">Dashboard</a>
+                <a href="paket.html" class="block px-4 py-3 hover:bg-slate-700 transition-colors">Paket Tour</a>
+                <a href="booking.html" class="block px-4 py-3 bg-slate-700 hover:bg-slate-700 transition-colors">Bookings</a>
+                <a href="users.html" class="block px-4 py-3 hover:bg-slate-700 transition-colors">Users</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header class="bg-white shadow">
+                <div class="px-6 py-4">
+                    <h1 class="text-xl font-semibold text-gray-800">Bookings</h1>
+                </div>
+            </header>
+
+            <!-- Table Section with Scroll -->
+            <div class="flex-1 overflow-auto p-6">
+                <div class="bg-white rounded-lg shadow">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50 border-b">
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Peserta</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paket</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu jemput</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No.Telepon</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Bryan Dotzler</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">MOJOSKEM 1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-01-15</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">07:00</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">brdotzler@gmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">081233887420</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Confirmed</span>
+                                    </td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add active state to navigation items
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Remove active state from all links
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('bg-slate-700');
+                });
+                // Add active state to clicked link
+                e.target.classList.add('bg-slate-700');
+            });
+        });
+    </script>
+</body>
+</html>
