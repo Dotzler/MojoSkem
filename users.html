@@ -7,11 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="flex h-screen bg-gray-100">
+    <div class="flex flex-col sm:flex-row min-h-screen bg-gray-100">
         <!-- Sidebar -->
-        <div class="w-64 bg-slate-800 text-white">
-            <div class="p-4 font-bold text-lg border-b border-slate-700">MOJOSKEM ADMIN</div>
-            <nav class="mt-4">
+        <div class="w-full sm:w-56 md:w-64 bg-slate-800 text-white">
+            <div class="flex justify-between items-center p-4 border-b border-slate-700">
+                <div class="font-bold text-base sm:text-lg">MOJOSKEM ADMIN</div>
+                <button class="sm:hidden text-white" id="menuToggle">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4 hidden sm:block" id="navigation">
                 <a href="index.html" class="block px-4 py-3 hover:bg-slate-700 transition-colors">Dashboard</a>
                 <a href="paket.html" class="block px-4 py-3 hover:bg-slate-700 transition-colors">Paket Tour</a>
                 <a href="booking.html" class="block px-4 py-3 hover:bg-slate-700 transition-colors">Bookings</a>
@@ -22,22 +29,50 @@
         <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <header class="bg-white shadow">
-                <div class="px-6 py-4">
-                    <h1 class="text-xl font-semibold text-gray-800">Users</h1>
+                <div class="px-4 sm:px-6 py-4">
+                    <h1 class="text-lg sm:text-xl font-semibold text-gray-800">Users</h1>
                 </div>
             </header>
 
-            <!-- Table Section -->
-            <div class="flex-1 overflow-auto p-6">
-                <div class="bg-white rounded-lg shadow">
+            <div class="flex-1 overflow-auto p-4 sm:p-6">
+                <!-- Mobile View: Card Layout -->
+                <div class="block sm:hidden space-y-4">
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium text-gray-500">Nama:</span>
+                                <span class="text-sm text-gray-900">Bryan Dotzler</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium text-gray-500">Email:</span>
+                                <span class="text-sm text-gray-900">brdotzler@gmail.com</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium text-gray-500">Phone:</span>
+                                <span class="text-sm text-gray-900">081233887420</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium text-gray-500">Tanggal terdaftar:</span>
+                                <span class="text-sm text-gray-900">2023-07-09</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-gray-500">Status:</span>
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop View: Table Layout -->
+                <div class="hidden sm:block bg-white rounded-lg shadow">
                     <div class="overflow-x-auto">
                         <table class="min-w-full">
                             <thead>
                                 <tr class="bg-gray-50 border-b">
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal terdaftar</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell">Phone</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Tanggal terdaftar</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                                 </tr>
                             </thead>
@@ -45,8 +80,8 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Bryan Dotzler</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">brdotzler@gmail.com</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">081233887420</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2023-07-09</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden lg:table-cell">081233887420</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden md:table-cell">2023-07-09</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                                     </td>
@@ -60,6 +95,23 @@
     </div>
 
     <script>
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navigation = document.getElementById('navigation');
+        
+        menuToggle.addEventListener('click', () => {
+            navigation.classList.toggle('hidden');
+        });
+
+        // Hide mobile menu when resizing to larger screens
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 640) { // sm breakpoint
+                navigation.classList.remove('hidden');
+            } else {
+                navigation.classList.add('hidden');
+            }
+        });
+
         // Add active state to navigation items
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', (e) => {
