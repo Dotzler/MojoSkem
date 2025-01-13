@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Bus Mojoskem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6">
+        <!-- Ketentuan Section -->
+        <div class="w-full md:w-1/2 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Ketentuan Rental Bus</h2>
+            <ul class="space-y-4 text-gray-600">
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Harga tarif sewa bus sudah termasuk sewa bus, driver, dan bahan bakar (BBM).</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Harga tarif sewa belum mencakup biaya tiket masuk tempat wisata, biaya parkir, biaya makan driver, serta biaya penginapan driver jika diperlukan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Biaya overtime dikenakan sebesar 10% dari tarif sewa per jam apabila melebihi waktu yang telah disepakati.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Untuk paket sewa full day, maksimal penggunaan bus adalah hingga pukul 22.00 WIB.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Harga tarif di atas tidak berlaku pada periode High Season atau hari libur tertentu. Tarif khusus akan diberlakukan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pelanggan wajib memberikan informasi lengkap mengenai tujuan perjalanan, jumlah penumpang, dan waktu sewa pada saat pemesanan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pemakaian bus hanya diperbolehkan untuk tujuan yang telah disepakati. Jika ada perubahan jadwal atau rute, pelanggan wajib mengonfirmasi terlebih dahulu.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pembayaran penuh harus dilakukan sebelum bus digunakan, kecuali ada perjanjian khusus.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pelanggan bertanggung jawab atas kerusakan kendaraan yang diakibatkan oleh kelalaian selama masa sewa.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Kebersihan bus wajib dijaga selama pemakaian. Biaya pembersihan tambahan akan dikenakan jika bus dikembalikan dalam kondisi kotor.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Kapasitas penumpang bus tidak boleh melebihi kapasitas maksimal yang telah ditentukan untuk alasan keselamatan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Fasilitas tambahan, seperti mikrofon, sound system, dan Wi-Fi (jika tersedia), harus digunakan dengan bijak. Kerusakan akibat kelalaian akan menjadi tanggung jawab pelanggan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pelanggan diharapkan mematuhi waktu keberangkatan dan jadwal yang telah disepakati untuk menghindari biaya tambahan atau pembatalan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p> Dalam situasi darurat atau kerusakan teknis yang tidak terduga, pihak rental akan berusaha memberikan pengganti kendaraan sesuai ketersediaan.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Booking Form Section -->
+        <div class="w-full md:w-1/2 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6">Booking Rental Bus Mojoskem</h2>
+            <p class="text-gray-600 mb-6">Isi nama, no. telp dan alamat email agar kami mudah menghubungi Anda.</p>
+            
+            <form class="space-y-4">
+                <div class="space-y-2">
+                    <label class="block text-gray-700">
+                        Nama <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-gray-700">
+                        No. Telp / WA <span class="text-red-500">*</span>
+                    </label>
+                    <input type="tel" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-gray-700">
+                        Bus <span class="text-red-500">*</span>
+                    </label>
+                    <select class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="Avanza">Mojoskem Double Decker</option>
+                        <option value="Avanza">Mojoskem Jetbus 5</option>
+                        <option value="Avanza">MojoSkem Minibus</option>
+                    </select>
+                </div>
+
+                <a href="next-form-bus.html"><button type="button" class="w-full bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition duration-200 mt-10">
+                    Selanjutnya
+                </button>
+                </a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

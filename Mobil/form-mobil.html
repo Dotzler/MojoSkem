@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Mobil Mojoskem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6">
+        <!-- Ketentuan Section -->
+        <div class="w-full md:w-1/2 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Ketentuan Rental Mobil</h2>
+            <ul class="space-y-4 text-gray-600">
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Harga tarif sewa mobil di atas sudah termasuk sewa mobil, driver, dan bahan bakar (BBM).</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Harga tarif sewa mobil di atas belum termasuk biaya tiket masuk tempat wisata, biaya parkir, biaya makan driver, dan biaya penginapan driver jika diperlukan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Biaya overtime dikenakan sebesar 10% per jam dari tarif sewa mobil.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Untuk paket sewa full day, maksimal penggunaan hingga pukul 22.00 WIB.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Harga tarif di atas tidak berlaku pada periode High Season atau hari libur tertentu.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pelanggan wajib memberikan informasi tujuan perjalanan dan waktu sewa dengan jelas pada saat pemesanan.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pemakaian mobil hanya diperbolehkan untuk tujuan yang telah disepakati saat pemesanan. Jika ada perubahan, wajib dikonfirmasi terlebih dahulu.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pembayaran penuh dilakukan sebelum mobil digunakan, kecuali ada perjanjian khusus.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Pelanggan bertanggung jawab atas kerusakan kendaraan yang disebabkan oleh kelalaian selama masa sewa.</p>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-gray-400">•</span>
+                    <p>Kebersihan kendaraan wajib dijaga selama masa pemakaian, dan biaya pembersihan tambahan akan dikenakan jika mobil dikembalikan dalam kondisi kotor.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Booking Form Section -->
+        <div class="w-full md:w-1/2 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-6">Booking Rental Mobil Mojoskem</h2>
+            <p class="text-gray-600 mb-6">Isi nama, no. telp dan alamat email agar kami mudah menghubungi Anda.</p>
+            
+            <form class="space-y-4">
+                <div class="space-y-2">
+                    <label class="block text-gray-700">
+                        Nama <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-gray-700">
+                        No. Telp / WA <span class="text-red-500">*</span>
+                    </label>
+                    <input type="tel" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-gray-700">
+                        Mobil <span class="text-red-500">*</span>
+                    </label>
+                    <select class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="Avanza">Toyota Hiace</option>
+                        <option value="Avanza">Mitsubishi Pajero Sport</option>
+                        <option value="Avanza">Toyota Fortuner</option>
+                        <option value="Avanza">Toyota Innova</option>
+                        <option value="Avanza">Toyota Alphard</option>
+                    </select>
+                </div>
+
+                <a href="next-form-mobil.html"><button type="button" class="w-full bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition duration-200 mt-10">
+                    Selanjutnya
+                </button>
+                </a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
