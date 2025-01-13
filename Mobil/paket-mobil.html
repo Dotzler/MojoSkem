@@ -7,43 +7,43 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-    <!-- Navbar -->
+    <!-- Responsive Navbar -->
     <nav class="bg-[#1e4e5f] text-white p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <h1 class="text-xl font-bold">SEWA MOBIL MOJOSKEM</h1>
             <a href="#" class="text-white">Kembali</a>
         </div>
     </nav>
 
-    <!-- Hero Grid Section -->
-    <div class="grid grid-cols-2 grid-rows-2 gap-2 h-[80vh]">
+    <!-- Responsive Hero Grid Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 min-h-[400px] md:h-[80vh]">
         <!-- Grid Item 1 - Main Hero -->
-        <div class="relative">
+        <div class="relative min-h-[300px]">
             <img src="./assets/driver.jpeg" alt="Hero Image" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center">
-                <h1 class="text-4xl font-bold mb-2">Sewa Mobil MojoSkem</h1>
-                <p class="text-xl mb-4">Terbaik dan Terlengkap</p>
-                <button class="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-500">
+            <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center p-4">
+                <h1 class="text-2xl md:text-4xl font-bold mb-2">Sewa Mobil MojoSkem</h1>
+                <p class="text-lg md:text-xl mb-4">Terbaik dan Terlengkap</p>
+                <button class="bg-yellow-400 text-black px-4 md:px-6 py-2 rounded-full font-bold hover:bg-yellow-500 text-sm md:text-base">
                     Rental Sekarang
                 </button>
             </div>
         </div>
 
         <!-- Grid Item 2 - Luxury Car -->
-        <div class="relative">
+        <div class="relative min-h-[300px]">
             <img src="./assets/armada-army-trans-2-1024x768.webp" alt="Luxury Car" class="w-full h-full object-cover">
         </div>
 
         <!-- Grid Item 3 - Driver -->
-        <div class="relative">
+        <div class="relative min-h-[300px]">
             <img src="./assets/Rental-Mobil-Surabaya-Terpercaya.jpeg" alt="Professional Driver" class="w-full h-full object-cover">
         </div>
 
         <!-- Grid Item 4 - About -->
-        <div class="relative bg-black">
+        <div class="relative bg-black min-h-[300px]">
             <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center p-6">
-                <h2 class="text-2xl font-bold mb-3 text-amber-300">Tentang Sewa MojoSkem</h2>
-                <p class="text-sm">
+                <h2 class="text-xl md:text-2xl font-bold mb-3 text-amber-300">Tentang Sewa MojoSkem</h2>
+                <p class="text-xs md:text-sm">
                     Sewa & Rental Mobil dengan Pelayanan terbaik di MojoSkem Indonesia.
                     Kami hadir untuk memberikan solusi transportasi yang nyaman dan terpercaya
                     bagi Anda dengan pilihan unit berkualitas dan sopir profesional.
@@ -52,15 +52,15 @@
         </div>
     </div>
 
-    <!-- Car Selection Section -->
-    <div class="bg-gray-100 py-16">
+    <!-- Responsive Car Selection Section -->
+    <div class="bg-gray-100 py-8 md:py-16">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Pilihan Mobil Untuk Disewa</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Pilihan Mobil Untuk Disewa</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                 <!-- Car Card 1 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="assets/Toyota-Hiace.png" alt="Toyota Hiace" class="w-full h-48 object-contain">
+                    <img src="./assets/Toyota-Hiace.png" alt="Toyota Hiace" class="w-full h-48 object-contain">
                     <div class="p-4">
                         <h3 class="font-bold text-lg mb-2 text-center">Toyota Hiace</h3>
                         <p class="text-gray-600 text-sm mb-4 text-center">
@@ -68,18 +68,18 @@
                             kendaraan dengan jumlah kursi lebih
                             dari 10, MPV ber design gagah dan panjang ini
                             adalah pilihan terbaik Anda.</p>
-
                         <p class="text-gray-600 text-sm mb-4 text-center">15 Orang Penumpang</p>
-                        <a href="form-mobil.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                            Booking
-                        </button>
+                        <a href="form-mobil.html">
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                Booking
+                            </button>
                         </a>
                     </div>
                 </div>
 
                 <!-- Car Card 2 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="assets/Pajero-Sport.png" alt="Pajero Sport" class="w-full h-48 object-contain">
+                    <img src="./assets/Pajero-Sport.png" alt="Pajero Sport" class="w-full h-48 object-contain">
                     <div class="p-4">
                         <h3 class="font-bold text-lg mb-2 text-center">Mitsubishi Pajero Sport</h3>
                         <p class="text-gray-600 text-sm mb-4 text-center">
@@ -89,16 +89,17 @@
                             canggih akan menemani anda
                             kemana pun anda inginkan.</p>
                         <p class="text-gray-600 text-sm mb-4 text-center">7 Orang Penumpang</p>
-                        <a href="form-mobil.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                            Booking
-                        </button>
+                        <a href="form-mobil.html">
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                Booking
+                            </button>
                         </a>
                     </div>
                 </div>
 
                 <!-- Car Card 3 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="assets/Toyota-Fortuner.png" alt="Toyota Fortuner" class="w-full h-48 object-contain">
+                    <img src="./assets/Toyota-Fortuner.png" alt="Pajero Sport" class="w-full h-48 object-contain">
                     <div class="p-4">
                         <h3 class="font-bold text-lg mb-2 text-center">Toyota Fortuner</h3>
                         <p class="text-gray-600 text-sm mb-4 text-center">
@@ -108,33 +109,35 @@
                             memuat 7 orang. Mewah dengan
                             kabin lega.</p>
                         <p class="text-gray-600 text-sm mb-4 text-center">7 Orang Penumpang</p>
-                        <a href="form-mobil.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                            Booking
-                        </button>
+                        <a href="form-mobil.html">
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                Booking
+                            </button>
                         </a>
                     </div>
                 </div>
 
                 <!-- Car Card 4 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="assets/INNOVA-3.png" alt="Toyota Innova" class="w-full h-48 object-contain">
+                    <img src="./assets/INNOVA-3.png" alt="Pajero Sport" class="w-full h-48 object-contain">
                     <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2 text-center">Toyota Innova</h3>
+                        <h3 class="font-bold text-lg mb-2 text-center">Toyota Innova Reborn</h3>
                         <p class="text-gray-600 text-sm mb-4 text-center">
                             SUV ini adalah salah satu mobil mewah yang paling populer. 
                             Memiliki kapasitas hingga 7 penumpang, menawarkan kenyamanan 
                             dengan kabin luas dan desain elegan.</p>
                         <p class="text-gray-600 text-sm mb-4 text-center">7 Orang Penumpang</p>
-                        <a href="form-mobil.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                            Booking
-                        </button>
+                        <a href="form-mobil.html">
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                Booking
+                            </button>
                         </a>
                     </div>
                 </div>
 
                 <!-- Car Card 5 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <img src="assets/alphard-transformer.png" alt="Toyota Alphard" class="w-full h-48 object-contain">
+                    <img src="./assets/alphard-transformer.png" alt="Pajero Sport" class="w-full h-48 object-contain">
                     <div class="p-4">
                         <h3 class="font-bold text-lg mb-2 text-center">Toyota Alphard</h3>
                         <p class="text-gray-600 text-sm mb-4 text-center">
@@ -142,57 +145,59 @@
                             Mobil ini mampu menampung hingga 5 penumpang dengan 
                             ruang kabin yang luas dan fitur premium.</p>
                         <p class="text-gray-600 text-sm mb-4 text-center">5 Orang Penumpang</p>
-                        <a href="form-mobil.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                            Booking
-                        </button>
+                        <a href="form-mobil.html">
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                                Booking
+                            </button>
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Testimonial Section -->
-    <div class="py-16 px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Testimonial</h2>
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+    <!-- Responsive Testimonial Section -->
+    <div class="py-8 md:py-16 px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Testimonial</h2>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             <!-- Testimonial Cards -->
-            <div class="bg-green-500 rounded-lg p-6 text-white">
-                <p>"Layanan sangat memuaskan, mobilnya bersih dan terawat"</p>
+            <div class="bg-green-500 rounded-lg p-4 md:p-6 text-white">
+                <p class="text-sm md:text-base">"Layanan sangat memuaskan, mobilnya bersih dan terawat"</p>
             </div>
-            <div class="bg-green-500 rounded-lg p-6 text-white">
-                <p>"Driver ramah dan profesional, perjalanan jadi nyaman"</p>
+            <div class="bg-green-500 rounded-lg p-4 md:p-6 text-white">
+                <p class="text-sm md:text-base">"Driver ramah dan profesional, perjalanan jadi nyaman"</p>
             </div>
-            <div class="bg-green-500 rounded-lg p-6 text-white">
-                <p>"Harga terjangkau dengan pelayanan premium"</p>
+            <div class="bg-green-500 rounded-lg p-4 md:p-6 text-white">
+                <p class="text-sm md:text-base">"Harga terjangkau dengan pelayanan premium"</p>
             </div>
-            <div class="bg-green-500 rounded-lg p-6 text-white">
-                <p>"Recommended! Akan menggunakan jasa ini lagi"</p>
+            <div class="bg-green-500 rounded-lg p-4 md:p-6 text-white">
+                <p class="text-sm md:text-base">"Recommended! Akan menggunakan jasa ini lagi"</p>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-[#1e4e5f] text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+    <!-- Responsive Footer -->
+    <footer class="bg-[#1e4e5f] text-white py-8 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center sm:text-left">
                 <h3 class="font-bold mb-4">KANTOR PUSAT</h3>
-                <p>MOJOSKËM INDONESIA</p>
-                <p>Jl. Batu Malang 717171</p>
-                <p>Email: mojoskem.id@gmail.com</p>
-                <p>Telp: (021) 8900 2532</p>
+                <p class="text-sm md:text-base">MOJOSKËM INDONESIA</p>
+                <p class="text-sm md:text-base">Jl. Batu Malang 717171</p>
+                <p class="text-sm md:text-base">Email: mojoskem.id@gmail.com</p>
+                <p class="text-sm md:text-base">Telp: (021) 8900 2532</p>
             </div>
             
-            <div>
+            <div class="text-center sm:text-left">
                 <h3 class="font-bold mb-4">TENTANG KAMI</h3>
-                <p>MOJOSKEM Indonesia, Penyedia Jasa</p>
-                <p>Tour Domestik Indonesia</p>
-                <p>Wisata Murah, Liburan Keluarga</p>
+                <p class="text-sm md:text-base">MOJOSKEM Indonesia, Penyedia Jasa</p>
+                <p class="text-sm md:text-base">Tour Domestik Indonesia</p>
+                <p class="text-sm md:text-base">Wisata Murah, Liburan Keluarga</p>
             </div>
             
-            <div>
+            <div class="text-center sm:text-left">
                 <h3 class="font-bold mb-4">TOUR FAVORIT</h3>
-                <ul>
+                <ul class="text-sm md:text-base">
                     <li>JAKARTA</li>
                     <li>BANDUNG</li>
                     <li>YOGYAKARTA</li>
@@ -200,18 +205,18 @@
                 </ul>
             </div>
             
-            <div>
+            <div class="text-center sm:text-left">
                 <h3 class="font-bold mb-4">JOIN WITH US</h3>
-                <div class="flex space-x-4">
-                    <a href="#" class="hover:text-gray-300">FB</a>
-                    <a href="#" class="hover:text-gray-300">IG</a>
-                    <a href="#" class="hover:text-gray-300">TW</a>
-                    <a href="#" class="hover:text-gray-300">YT</a>
+                <div class="flex justify-center sm:justify-start space-x-4">
+                    <a href="#" class="hover:text-gray-300 text-sm md:text-base">FB</a>
+                    <a href="#" class="hover:text-gray-300 text-sm md:text-base">IG</a>
+                    <a href="#" class="hover:text-gray-300 text-sm md:text-base">TW</a>
+                    <a href="#" class="hover:text-gray-300 text-sm md:text-base">YT</a>
                 </div>
                 
                 <div class="mt-8">
                     <h3 class="font-bold mb-4">VISITORS</h3>
-                    <div class="bg-black text-white inline-block px-2 py-1">
+                    <div class="bg-black text-white inline-block px-2 py-1 text-sm md:text-base">
                         10091432
                     </div>
                 </div>
