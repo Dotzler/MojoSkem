@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-100">
     <!-- Image Preview Modal -->
-    <div id="imagePreviewModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full flex items-center justify-center z-50 p-4">
+    <div id="imagePreviewModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full flex items-start justify-center z-50 p-4">
         <div class="relative max-w-4xl w-full">
             <button onclick="closeImagePreview()" class="absolute top-0 right-0 -mt-4 -mr-4 bg-white rounded-full p-2 hover:bg-gray-100 z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,7 +20,7 @@
     </div>
 
     <!-- Package Modal/Popup -->
-    <div id="packageModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full flex items-center justify-center z-40 p-4">
+    <div id="packageModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full flex items-start justify-center z-40 p-4">
         <div class="relative p-4 sm:p-5 border w-full max-w-[95%] sm:max-w-lg shadow-lg rounded-md bg-white">
             <h3 id="modalTitle" class="text-lg font-medium mb-4">Tambahkan paket baru</h3>
             <form id="packageForm">
@@ -31,24 +31,22 @@
                         <input type="text" id="packageName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Gambar</label>
-                        <div class="mt-1 flex justify-center px-4 py-4 border-2 border-gray-300 border-dashed rounded-md">
-                            <div class="space-y-1 text-center">
-                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <div class="flex text-sm text-gray-600 justify-center">
-                                    <label class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500">
-                                        <span>Upload a file</span>
-                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                    </label>
-                                </div>   
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Gambar (1 wajib, hingga 3 opsional)</label>
+                        <div id="imageContainer" class="space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <input type="file" id="image1" name="images[]" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <button type="button" onclick="addImageField()" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">+</button>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Destinasi</label>
-                        <input type="text" id="destination" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Destinasi (1 wajib, hingga 8 opsional)</label>
+                        <div id="destinationContainer" class="space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <input type="text" id="destination1" name="destinations[]" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <button type="button" onclick="addDestinationField()" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">+</button>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Biaya</label>
@@ -131,7 +129,7 @@
                     <h1 class="text-lg sm:text-xl font-semibold text-gray-800">Paket Tour</h1>
                 </div>
             </header>
-
+        
             <div class="flex-1 overflow-auto p-4 sm:p-6">
                 <div class="mb-4">
                     <button onclick="openModal('add')" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors flex items-center">
@@ -141,29 +139,40 @@
                         Tambahkan paket
                     </button>
                 </div>
-
+        
                 <!-- Mobile Card View -->
                 <div class="block sm:hidden space-y-4">
                     <div class="bg-white rounded-lg shadow p-4">
                         <div class="flex items-center space-x-4">
-                            <img src="./assets/bromosunrise.jpg" alt="Tour Image" class="h-16 w-16 rounded-md cursor-pointer" onclick="openImagePreview(this.src)">
                             <div class="flex-1">
-                                <h3 class="font-medium">Bromo Sunrise Tour</h3>
+                                <h3 class="font-medium">Paket Wisata Malang 1</h3>
+                                <div class="flex space-x-2 mt-2">
+                                    <img src="./assets/bromosunrise.jpg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer" onclick="openImagePreview(this.src)">
+                                    <img src="./assets/bus-baru-po-garuda-mas-menggunakan-sasis-mercy-dan-bodi-adiputro-2.jpeg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer" onclick="openImagePreview(this.src)">
+                                    <img src="./assets/bus-tronton-po-garuda-mas-ok.jpg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer" onclick="openImagePreview(this.src)">
+                                </div>
+                                <div class="text-sm text-gray-500 mt-2">
+                                    <strong>Destinasi:</strong>
+                                    <ul class="list-disc ml-5">
+                                        <li>Coban Rondo</li>
+                                        <li>Taman Labirin</li>
+                                        <li>Museum Angkut</li>
+                                        <li>Batu Night Spectacular</li>
+                                        <!-- Tambahkan destinasi lainnya sesuai kebutuhan -->
+                                    </ul>
+                                </div>
+                                <p class="text-sm font-medium mt-2">Rp 1.500.000</p>
+                                <p class="text-sm text-gray-500 mt-2 break-words">Paket wisata malang 1 hari murah dan terbaik 2024. Harga paket one day tour malang murah keliling ke tempat wisata malang hits dan yang terbaru. Liburan ke malang seharian pasti mengesankan..</p>
+                                <span class="inline-flex mt-2 px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                                 <div class="mt-2 flex space-x-2">
                                     <button onclick="openModal('edit', 1)" class="bg-blue-500 text-white px-2 py-1 rounded text-sm hover:bg-blue-600">Edit</button>
                                     <button onclick="openDeleteModal(1)" class="bg-red-500 text-white px-2 py-1 rounded text-sm hover:bg-red-600">Delete</button>
                                 </div>
-                                <p class="text-sm text-gray-500">East Java</p>
-                                <p class="text-sm font-medium">Rp 1.500.000</p>
-                                <p class="text-sm text-gray-500 mt-2 break-words">Paket wisata malang 1 hari murah dan terbaik 2024. Harga paket one day tour malang
-                                    murah keliling ke tempat wisata malang hits dan yang terbaru. Liburan ke malang seharian
-                                    pasti mengesankan..</p>
-                                <span class="inline-flex mt-2 px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
+        
                 <!-- Desktop Table View -->
                 <div class="hidden sm:block bg-white rounded-lg shadow">
                     <div class="overflow-x-auto">
@@ -183,13 +192,23 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Paket Wisata Malang 1</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        <img src="./assets/bromosunrise.jpg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePreview(this.src)">
+                                        <div class="flex flex-col space-y-2">
+                                            <img src="./assets/bromosunrise.jpg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePreview(this.src)">
+                                            <img src="./assets/bus-baru-po-garuda-mas-menggunakan-sasis-mercy-dan-bodi-adiputro-2.jpeg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePreview(this.src)">
+                                            <img src="./assets/bus-tronton-po-garuda-mas-ok.jpg" alt="Tour Image" class="h-10 w-10 rounded-md cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePreview(this.src)">
+                                        </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">East Java</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <ul class="list-disc ml-5">
+                                            <li>Coban Rondo</li>
+                                            <li>Taman Labirin</li>
+                                            <li>Museum Angkut</li>
+                                            <li>Batu Night Spectacular</li>
+                                            <!-- Tambahkan destinasi lainnya sesuai kebutuhan -->
+                                        </ul>
+                                    </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden lg:table-cell">Rp 1.500.000</td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">Paket wisata malang 1 hari murah dan terbaik 2024. Harga paket one day tour malang
-                                        murah keliling ke tempat wisata malang hits dan yang terbaru. Liburan ke malang seharian
-                                        pasti mengesankan..</td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">Paket wisata malang 1 hari murah dan terbaik 2024. Harga paket one day tour malang murah keliling ke tempat wisata malang hits dan yang terbaru. Liburan ke malang seharian pasti mengesankan..</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
                                     </td>
@@ -203,10 +222,51 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
 
     <script>
+        let imageCount = 1;
+        let destinationCount = 1;
+
+        function addImageField() {
+            if (imageCount < 3) {
+                imageCount++;
+                const imageContainer = document.getElementById('imageContainer');
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2';
+                div.innerHTML = `
+                    <input type="file" name="images[]" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <button type="button" onclick="removeField(this)" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">-</button>
+                `;
+                imageContainer.appendChild(div);
+            }
+        }
+
+        function addDestinationField() {
+            if (destinationCount < 8) {
+                destinationCount++;
+                const destinationContainer = document.getElementById('destinationContainer');
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2';
+                div.innerHTML = `
+                    <input type="text" name="destinations[]" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <button type="button" onclick="removeField(this)" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">-</button>
+                `;
+                destinationContainer.appendChild(div);
+            }
+        }
+
+        function removeField(button) {
+            const div = button.parentElement;
+            div.remove();
+            if (button.previousElementSibling.name === 'images[]') {
+                imageCount--;
+            } else if (button.previousElementSibling.name === 'destinations[]') {
+                destinationCount--;
+            }
+        }
+
         // Toggle mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navigation = document.getElementById('navigation');
@@ -280,55 +340,111 @@
             modal.classList.add('hidden');
         }
 
-        // Form handling functions
+        // Update getPackageData function to return complete package data
         function getPackageData(packageId) {
             // This would typically be an API call to get package data
-            // For now, returning mock data
+            // For now, returning mock data that matches your form fields
             return {
                 id: packageId,
-                name: 'Bromo Sunrise Tour',
-                destination: 'East Java',
-                description: 'Paket wisata malang 1 hari murah dan terbaik 2024. Harga paket one day tour malang murah keliling ke tempat wisata malang hits dan yang terbaru. Liburan ke malang seharian pasti mengesankan..',
+                name: 'Paket Wisata Malang 1',
+                images: [
+                    './assets/bromosunrise.jpg',
+                    './assets/bus-baru-po-garuda-mas-menggunakan-sasis-mercy-dan-bodi-adiputro-2.jpeg',
+                    './assets/bus-tronton-po-garuda-mas-ok.jpg'
+                ],
+                destinations: [
+                    'Coban Rondo',
+                    'Taman Labirin',
+                    'Museum Angkut',
+                    'Batu Night Spectacular'
+                ],
                 price: 'Rp 1.500.000',
+                description: 'Paket wisata malang 1 hari murah dan terbaik 2024. Harga paket one day tour malang murah keliling ke tempat wisata malang hits dan yang terbaru. Liburan ke malang seharian pasti mengesankan..',
                 status: 'Active'
             };
         }
 
+        // Update fillFormData function to populate all form fields
         function fillFormData(data) {
             document.getElementById('packageId').value = data.id;
             document.getElementById('packageName').value = data.name;
-            document.getElementById('destination').value = data.destination;
-            document.getElementById('description').value = data.description;
             document.getElementById('price').value = data.price;
+            document.getElementById('description').value = data.description;
             document.getElementById('status').value = data.status;
+
+            // Reset containers
+            const imageContainer = document.getElementById('imageContainer');
+            const destinationContainer = document.getElementById('destinationContainer');
+            imageContainer.innerHTML = '';
+            destinationContainer.innerHTML = '';
+
+            // Add existing images
+            data.images.forEach((imageSrc, index) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2 mb-2';
+                div.innerHTML = `
+                    <div class="flex-1">
+                        <input type="file" name="images[]" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <img src="${imageSrc}" alt="Current image" class="h-10 w-10 object-cover mt-1 rounded">
+                    </div>
+                    ${index === 0 ? 
+                        `<button type="button" onclick="addImageField()" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">+</button>` :
+                        `<button type="button" onclick="removeField(this)" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">-</button>`
+                    }
+                `;
+                imageContainer.appendChild(div);
+                imageCount = data.images.length;
+            });
+
+            // Add existing destinations
+            data.destinations.forEach((destination, index) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2 mb-2';
+                div.innerHTML = `
+                    <input type="text" name="destinations[]" value="${destination}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    ${index === 0 ? 
+                        `<button type="button" onclick="addDestinationField()" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600">+</button>` :
+                        `<button type="button" onclick="removeField(this)" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">-</button>`
+                    }
+                `;
+                destinationContainer.appendChild(div);
+                destinationCount = data.destinations.length;
+            });
         }
 
-        // Form submission
+        // Update form submission handler
         document.getElementById('packageForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = {
-                id: currentPackageId,
-                name: document.getElementById('packageName').value,
-                destination: document.getElementById('destination').value,
-                description: document.getElementById('description').value,
-                price: document.getElementById('price').value,
-                status: document.getElementById('status').value
-            };
+            // Gather all form data
+            const formData = new FormData();
+            formData.append('id', currentPackageId || '');
+            formData.append('name', document.getElementById('packageName').value);
+            formData.append('price', document.getElementById('price').value);
+            formData.append('description', document.getElementById('description').value);
+            formData.append('status', document.getElementById('status').value);
 
-            // Add file handling if a new image was uploaded
-            const fileInput = document.getElementById('file-upload');
-            if (fileInput.files.length > 0) {
-                formData.image = fileInput.files[0];
-            }
+            // Gather all destinations
+            const destinations = [];
+            document.querySelectorAll('input[name="destinations[]"]').forEach(input => {
+                destinations.push(input.value);
+            });
+            formData.append('destinations', JSON.stringify(destinations));
+
+            // Gather all images
+            const imageFiles = document.querySelectorAll('input[type="file"][name="images[]"]');
+            imageFiles.forEach((file, index) => {
+                if (file.files[0]) {
+                    formData.append(`image${index + 1}`, file.files[0]);
+                }
+            });
+
+            // Here you would typically make an API call to update or create the package
+            console.log('Form data:', Object.fromEntries(formData));
 
             if (currentPackageId) {
-                // Update existing package
-                console.log('Updating package:', formData);
                 alert('Paket berhasil diupdate');
             } else {
-                // Create new package
-                console.log('Creating new package:', formData);
                 alert('Paket baru berhasil ditambahkan');
             }
 
